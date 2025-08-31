@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clients | Ankit Jindal & Company</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Montserrat:wght@500;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #111;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 8%;
+      background: #fff;
+      color: #111;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      transition: 0.3s;
+    }
+
+    .companylogo {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .companylogo img {
+      width: 70px;
+      border-radius: 50%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .companylogo::before {
+      content: "";
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #ffd700, transparent 120deg, #ffd700);
+      animation: spinShine 3s linear infinite;
+      z-index: 1;
+      filter: blur(2px) brightness(1.3);
+    }
+
+    @keyframes spinShine {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      margin-left: 15px;
+      background: linear-gradient(90deg, #000, #ffd700, #000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shineText 5s linear infinite;
+    }
+
+    @keyframes shineText {
+      0% {
+        background-position: -200px;
+      }
+
+      100% {
+        background-position: 200px;
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #111;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ffd700;
+    }
+
+    .clientlink {
+      background: #ffd700;
+      color: #000 !important;
+      padding: 8px 14px;
+      border-radius: 8px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 7px;
+      border-radius: 8px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: #000;
+      margin: 4px 0;
+    }
+
+    /* Section */
+    section {
+      padding: 120px 8% 80px 8%;
+      text-align: center;
+    }
+
+    section h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #ffd700;
+      animation: fadeIn 2s ease;
+    }
+
+    section h2::after {
+      content: "";
+      display: block;
+      height: 3px;
+      width: 80px;
+      background: #ffd700;
+      margin: 10px auto 0;
+      border-radius: 3px;
+    }
+
+    section p {
+      font-size: 18px;
+      margin-bottom: 25px;
+      color: #555;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .client-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .client-grid img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: 0.3s;
+      cursor: pointer;
+      background: #fff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .client-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      background: #111;
+      color: #fff;
+    }
+
+    footer h2 {
+      color: #ffd700;
+    }
+
+    .footerlink {
+      margin-bottom: 20px;
+    }
+
+    .navLinks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      list-style: none;
+    }
+
+    .navLinks a {
+      color: #ccc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .navLinks a:hover {
+      color: #ffd700;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media(max-width:1024px) {
+      .logo {
+        font-size: 20px;
+      }
+
+      section h1 {
+        font-size: 36px;
+      }
+    }
+
+    @media(max-width:768px) {
+      .logo {
+        font-size: 18px;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        width: 220px;
+        display: none;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 10px 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      section h1 {
+        font-size: 28px;
+      }
+
+      section p {
+        font-size: 16px;
+      }
+    }
+
+    @media(max-width:480px) {
+      .companylogo img {
+        width: 65px;
+      }
+
+      .logo {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 100px 5% 60px 5%;
+      }
+
+      section h1 {
+        font-size: 24px;
+      }
+
+      section p {
+        font-size: 14px;
+      }
+
+      .client-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        padding: 30px 15px;
+      }
+
+      .footercontact p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="companylogo"><img src="logob.png" alt="AJ Logo"></div>
+    <div class="logo">Ankit Jindal & Company</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="project.html">Projects</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a class="clientlink" href="client.html">Clients</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <!-- Clients Section -->
+  <section class="clients" id="clients">
+    <h1>Our Clients</h1>
+    <p>We proudly work with government agencies, private companies, and global brands to deliver exceptional results.
+    </p>
+
+    <div class="client-grid">
+      <img src="PWD.jpg" alt="PWD">
+      <img src="CPWD.jpg" alt="CPWD">
+      <img src="RSRDC.jpg" alt="RSRDC">
+      <img src="MILITARY ENGINEER SERVICES.jpg" alt="Military Engineer Services">
+      <img src="new client.jpg" alt="pawansut">
+      <img src="BRO.jpg" alt="BRO">
+      <img src="maharaja ganga singh.jpg" alt="Maharaja Ganga Singh University">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footerlink">
+      <ul class="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="client.html">Clients</a></li>
+      </ul>
+    </div>
+    <div class="footercontact">
+      <h2>Contact Us</h2>
+      <p>Email: dabu.jindal@gmail.com</p>
+      <p>Phone: +91 94611-07579 | +91 93524-63606</p>
+      <p>Address: 6-U-34 Jawahar Nagar, Sri Ganganagar- 335001 (Raj.)</p>
+    </div>
+    <br>
+    <p>© 2025 Ankit Jindal & Company. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('show'));
+  </script>
+
+</body>
+
+</html>
