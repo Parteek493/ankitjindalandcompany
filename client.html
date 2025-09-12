@@ -31,7 +31,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 8%;
+      padding: 12px 6%;
       background: #fff;
       color: #111;
       position: fixed;
@@ -144,6 +144,8 @@
     section {
       padding: 120px 8% 80px 8%;
       text-align: center;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
     }
 
     section h1 {
@@ -391,6 +393,8 @@
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => navLinks.classList.toggle('show'));
   </script>
+  <!-- Add the navigation script -->
+  <script src="app.js"></script>
 
 </body>
 
